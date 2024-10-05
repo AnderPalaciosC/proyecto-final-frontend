@@ -1,0 +1,101 @@
+@import 'variables';
+
+// Disposición de lista de productos
+.productos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+// Estilos del producto
+.producto-item {
+  border: 1px solid $color-borde;
+  padding: $padding-medio;
+  border-radius: $radio-borde-grande;
+  width: 260px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // Espaciado entre la imagen, la descripción y el stock
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+// Imagen del producto
+.producto-imagen {
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: $padding-pequeno;
+  border-radius: $borde-redondeado-grande;
+}
+
+// Descripción centrada del producto con funcionalidad de "Mostrar más"
+.producto-descripcion {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+  max-height: 4.2em; /* Limita a 3 líneas */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limita a 3 líneas */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  position: relative;
+  line-height: 1.4em;
+  transition: max-height 0.3s ease;
+}
+
+.mostrar-mas {
+  display: inline-block;
+  text-align: right;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.mostrar-completa {
+  max-height: none; /* Elimina el límite de altura cuando se muestra todo */
+}
+
+// Precio del producto
+.producto-precio {
+  color: #007bff;
+  font-size: 18px;
+  margin-bottom: 10px; // Ajusta el espaciado del precio
+}
+
+// Selectores de color y capacidad
+select {
+  width: 100%;
+  padding: $padding-pequeno;
+  margin-bottom: $padding-pequeno;
+  border-radius: $radio-borde;
+  border: 1px solid $color-borde;
+  text-align: center;
+  font-size: $fuente-media;
+}
+
+.stock-disponible, .sin-stock, .stock-por-seleccionar {
+  font-weight: bold;
+  margin-top: 10px; // Espaciado adicional entre la información de stock y el precio
+}
+
+.stock-disponible {
+  color: green;
+}
+
+.sin-stock {
+  color: red;
+}
+
+.stock-por-seleccionar {
+  color: green; // Verde si aún no se seleccionó ni color ni capacidad
+}
